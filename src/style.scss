@@ -77,14 +77,15 @@ button {
         height: 40px;
         border-radius: 10px;
         margin-right: 15px;
+        transition: all 0.3s ease-in-out;
         &.active {
             background: #FF9C27;
         }     
     }
     &__cards {
         padding: 25px;
-        width: 100%;
         width: 725px;
+        max-width: 725px;
         height: 500px;
         background: #FFFFFF;
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
@@ -98,6 +99,7 @@ button {
     &__card {
         position: relative;
         width: 100%;
+        max-width: 325px;
         min-height: 212.5px;
         padding: 15px;
         background: #FFFFFF;
@@ -144,6 +146,7 @@ button {
     &__card-descr {
         font-size: 18px;
         line-height: 22px;
+        max-width: 100%;
     }
     &__form {
         width: 350px;
@@ -225,6 +228,7 @@ button {
     border-radius: 20px;
     width: 100%;
     min-height: 80vh;
+    overflow: scroll;
     &__exit {
         position: absolute;
         right: 35px;
@@ -257,11 +261,15 @@ button {
         margin-bottom: 30px;    
     }
     &__description {
+        position: relative;
         font-size: 24px;
         line-height: 29px;
         max-width: 100%;
         width: 100%;
         border: none;
+        height: 500px;
+        outline: none;
+        resize: none;
     }
 }
 
@@ -269,42 +277,16 @@ button {
     .container {
         max-width: 960px;
     }
-    .main {
-    }
     .cards {
-        &__wrapper {}
-        &__section {}
+
         &__search {
             width: 100%;
         }
-        &__search-title {}
-        &__search-input {}
-        &__search-btns {}
-        &__search-btn {}
         &__cards {
             width: 585px;
         }
-        &__card {}
-        &__card-btn {}
-        &__card-title {}
-        &__card-tags {}
-        &__card-importance {}
-        &__card-descr {}
-        &__form {}
-        &__form-input-title {}
-        &__form-input {}
-        &__form-textarea {}
-        &__form-important {}
-        &__from-important-title {}
-        &__form-important-btns {}
-        &__form-important-btn {}
-        &__form-tag {}
-        &__form-main-btn {}
     }
-    .container {
-    }
-    .btn {
-    }
+
 
     
 }
@@ -387,5 +369,8 @@ button {
             font-size: 20px;
             height: 50px;
         }
+    }
+    .main-card {
+        max-width: 100vh;
     }
 }

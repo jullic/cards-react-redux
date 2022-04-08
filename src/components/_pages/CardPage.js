@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { getOneCard, closeOneCard, updateLocalStorage } from "../../redux/actions/actions";
-import Card from "../card/Card";
+import { useSelector } from "react-redux";
+import Card from "../card/Card"
+
 
 const CardPage = () => {
-    const {isOneCard, card} = useSelector(state => state.cards);
-    const dispatch = useDispatch();
-    const {cardId} = useParams();
-    console.log(isOneCard);
-    
-    
-    useEffect(() => {
-        dispatch(getOneCard(cardId));
-        dispatch(updateLocalStorage());
-    }, []);
-
-    const onCloseCard = () => {
-        dispatch(closeOneCard());
-        dispatch(updateLocalStorage());
-    };
+    const {card} = useSelector(state => state.cards);
 
     return (
-        <main className="main">
+        <main className="main main-card">
             <div className="container">
-                {isOneCard ? <Card onCloseCard={onCloseCard} card={card}/> : <></>}
+                <Card card={card}/>
             </div>
         </main>
     )

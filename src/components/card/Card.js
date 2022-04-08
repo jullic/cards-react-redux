@@ -1,15 +1,27 @@
-import ContentEditable from "react-contenteditable";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { changeCardDescr, updateLocalStorage } from "../../redux/actions/actions";
 
-const Card = ({card, onCloseCard}) => {
+const Card = (props) => {
+    const dispatch = useDispatch();
+    const [value, setValue] = useState(props.card.descr);
+
+    const onExitCard = () => {
+        dispatch(changeCardDescr(value));
+        dispatch(updateLocalStorage());
+    }
+    const onSetValue = (e) => {
+        setValue(e.target.value);
+    };
 
     return (
         <div className="card">
-            <Link onClick={onCloseCard} to='/' className="card__exit">×</Link>
-            <div className="card__name">{card.name}</div>
-            <div className="card__important">{card.type === 'inportant' ? 'Важное' : 'Неважное'}</div>
-            <div className="card__tags">{card.tags.join('')}</div>
-            <textarea className="card__description" value={card.descr}></textarea>
+            <Link onClick={onExitCard} to='/' className="card__exit">×</Link>
+            <div className="card__name">{props.card.name}</div>
+            <div className="card__important">{props.card.type === 'inportant' ? 'Важное' : 'Неважное'}</div>
+            <div className="card__tags">{props.card.tags.join('')}</div>
+            <textarea onChange={onSetValue} className="card__description" value={value}></textarea>
         </div>
     );
 };

@@ -1,12 +1,17 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createNewCard, updateLocalStorage } from "../../redux/actions/actions";
 
 const CardForm = () => {
-
     const [name, setName] = useState('');
     const [descr, setDescr] = useState('');
     const [type, setType] = useState('important');
     const [tags, setTags] = useState('');
+    const [isMissingName, setIsMissingName] = useState(false);
+    const [isMissingDescr, setIsMissingDescr] = useState(false);
+
+    const dispatch = useDispatch();
     
     const onChangeName = (e) => {
         setName(e.target.value)
@@ -22,25 +27,41 @@ const CardForm = () => {
     };
 
     const onCreateNewCard = () => {
+        if (name === '') {
+            setIsMissingName(true);
+            if (descr === '') {
+                setIsMissingDescr(true);
+            }
+            return;
+        }
+        if (descr === '') {
+            setIsMissingDescr(true);
+            return;
+        }
         let arrTags = tags.split(' ').filter(tag => tag !== '').map(tag => '#' + tag);
         const newCard = {
             id: nanoid(),
             name,
             descr,
+            cropDescr: descr.slice(0, 30),
             type,
             tags: arrTags
         };
-
-        return newCard;
+        setName('');
+        setDescr('');
+        setType('important');
+        setTags('');
+        dispatch(createNewCard(newCard));
+        dispatch(updateLocalStorage());
     }
     
 
     return (
         <form onClick={(e) => e.preventDefault()} action="" className="cards__form">
             <div className="cards__form-input-title">Название карточки</div>
-            <input onChange={onChangeName} className="cards__form-input" type="text" value={name}/>
+            <input onBlur={() => name === '' ? setIsMissingName(true) : null} onFocus={() => setIsMissingName(false)} onChange={onChangeName} className="cards__form-input" type="text" value={isMissingName ? 'Это обязательное поле!' : name} style={{'color': `${isMissingName ? 'red' : ''}`}}/>
             <div className="cards__form-input-title">Описание карточки</div>
-            <textarea onChange={onChangeDescr} className="cards__form-textarea" name="" value={descr}></textarea>
+            <textarea onBlur={() => descr === '' ? setIsMissingDescr(true) : null} onFocus={() => setIsMissingDescr(false)} onChange={onChangeDescr} className="cards__form-textarea" value={isMissingDescr ? 'Это обязательное поле!' : descr} style={{'color': `${isMissingDescr ? 'red' : ''}`}}></textarea>
             <div className="cards__form-important">
                 <div className="cards__from-important-title">Важность</div>
                 <div className="cards__form-important-btns">
