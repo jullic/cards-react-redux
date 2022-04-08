@@ -1,0 +1,391 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+button {
+    cursor: pointer;
+}
+.main {
+    margin: 100px 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1100px;
+}
+.btn {
+    background: #FFBA68;
+    color: #fff;
+    border: none;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 25px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &__search {
+        padding: 25px;
+        width: 100%;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        margin-bottom: 25px;
+    }
+    &__search-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+    }
+    &__search-input {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        border-radius: 10px;
+        height: 40px;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+    &__search-btns {
+
+    }
+    &__search-btn {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #FFFFFF;   
+        width: 120px;
+        height: 40px;
+        border-radius: 10px;
+        margin-right: 15px;
+        &.active {
+            background: #FF9C27;
+        }     
+    }
+    &__cards {
+        padding: 25px;
+        width: 100%;
+        width: 725px;
+        height: 500px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 25px;
+        overflow: scroll;
+    }
+    &__card {
+        position: relative;
+        width: 100%;
+        min-height: 212.5px;
+        padding: 15px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        width: 100%;
+        text-decoration: none;
+        color: #000;
+    }
+    &__card-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #FFFFFF; 
+        width: 35px;
+        height: 35px;
+        background: #DC3545;
+        border-radius: 10px;  
+        border: none;     
+    }
+    &__card-title {
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+    }
+    &__card-tags {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.5);        
+    }
+    &__card-importance {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #FF9C27;  
+        margin-bottom: 15px;      
+    }
+    &__card-descr {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    &__form {
+        width: 350px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        padding: 25px;
+    }
+    &__form-input-title {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;        
+    }
+    &__form-input {
+        padding: 0 15px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 48px;
+    }
+    &__form-textarea {
+        padding: 15px;
+        width: 100%;
+        height: 145px;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin-bottom: 62px;
+        resize: none;
+    }
+    &__form-important {}
+    &__from-important-title {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+    &__form-important-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 37px;
+    }
+    &__form-important-btn {
+        width: 140px;
+        height: 50px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #FFFFFF;    
+        &.active {
+            background: #FF9C27;
+        }      
+    }
+    &__form-tag {
+        margin-bottom: 41px;
+    }
+    &__form-main-btn {
+        width: 100%;
+        height: 60px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+        color: #FFFFFF;
+        border-radius: 10px;
+    }
+}
+
+.card {
+    position: relative;
+    padding: 35px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    width: 100%;
+    min-height: 80vh;
+    &__exit {
+        position: absolute;
+        right: 35px;
+        top: 0;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 73px;
+        color: #000000;
+        border: none;
+        background: none;
+        text-decoration: none;
+    }
+    &__name {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        margin-bottom: 5px;
+    }
+    &__important {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #FF9C27;
+    }
+    &__tags {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.5);    
+        margin-bottom: 30px;    
+    }
+    &__description {
+        font-size: 24px;
+        line-height: 29px;
+        max-width: 100%;
+        width: 100%;
+        border: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    .main {
+    }
+    .cards {
+        &__wrapper {}
+        &__section {}
+        &__search {
+            width: 100%;
+        }
+        &__search-title {}
+        &__search-input {}
+        &__search-btns {}
+        &__search-btn {}
+        &__cards {
+            width: 585px;
+        }
+        &__card {}
+        &__card-btn {}
+        &__card-title {}
+        &__card-tags {}
+        &__card-importance {}
+        &__card-descr {}
+        &__form {}
+        &__form-input-title {}
+        &__form-input {}
+        &__form-textarea {}
+        &__form-important {}
+        &__from-important-title {}
+        &__form-important-btns {}
+        &__form-important-btn {}
+        &__form-tag {}
+        &__form-main-btn {}
+    }
+    .container {
+    }
+    .btn {
+    }
+
+    
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .cards {
+        &__wrapper {
+            flex-direction: column;
+        }
+        &__section {
+            margin-bottom: 25px;
+            margin-right: 0;
+        }
+        &__search {
+            width: 100%;
+        }
+        &__search-title {}
+        &__search-input {}
+        &__search-btns {}
+        &__search-btn {}
+        &__cards {
+            width: 100%;
+        }
+        &__form {
+            width: 100%;
+        }
+        &__form-important-btns {
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+        }
+        &__form-important-btn {
+            margin-bottom: 10px;
+            margin-right: auto;
+            width: 50%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 80%;
+    }
+    .cards {
+        &__search {
+
+        }
+        &__search-btn {
+            margin-right: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        &__cards {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__form-important-btns {
+            display: flex;
+            flex-direction: column;
+        }
+        &__form-important-btn {
+            font-size: 18px;
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+        &__form-input-title {
+            font-size: 20px;
+        }
+        &__form-main-btn {
+            font-size: 20px;
+            height: 50px;
+        }
+    }
+}
